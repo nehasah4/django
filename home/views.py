@@ -1,8 +1,10 @@
 from django.shortcuts import render
-
+from .models import *
 
 def home(request):
-    return render(request, 'index.html')
+    views = {}
+    views['services'] = Service.objects.all()
+    return render(request, 'index.html', views)
 
 
 def about(request):
